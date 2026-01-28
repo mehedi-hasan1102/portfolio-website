@@ -1,3 +1,9 @@
+---
+import { ThemeScript } from 'astro-theme-toggle/components';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -7,11 +13,34 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
+		<ThemeScript />
 	</head>
-	<body>
+	<body class="bg-white dark:bg-black text-black dark:text-white">
 		<slot />
+		<Footer />
 	</body>
 </html>
+
+<style>
+	:root {
+		background-color: white;
+		color: black;
+	}
+
+	html.dark {
+		background-color: black;
+		color: white;
+	}
+
+	html.dark body {
+		background-color: black;
+		color: white;
+	}
+
+	a {
+		color: inherit;
+	}
+</style>
 
 <style>
 	html,

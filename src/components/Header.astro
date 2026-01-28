@@ -1,0 +1,80 @@
+---
+---
+
+<header class="bg-white dark:bg-gray-900 transition-colors border-b border-gray-200 dark:border-gray-700">
+  <div class="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-gray-900 dark:text-white">Mehedi Hasan</h1>
+    
+    <button id="header-theme-toggle" class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors text-lg" aria-label="Toggle theme">
+      <span id="header-theme-icon">🌙</span>
+    </button>
+  </div>
+</header>
+
+<script is:inline>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.classList.contains('dark');
+    
+    // Toggle the dark class
+    if (isDark) {
+      html.classList.remove('dark');
+    } else {
+      html.classList.add('dark');
+    }
+    
+    // Update localStorage for persistence
+    const newTheme = html.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem('theme', newTheme);
+    
+    // Update all icons
+    const newIsDark = html.classList.contains('dark');
+    document.querySelectorAll('[id$="-theme-icon"]').forEach(icon => {
+      icon.textContent = newIsDark ? '☀️' : '🌙';
+    });
+  }
+
+  // Initialize icons based on current theme
+  function initializeIcons() {
+    const isDark = document.documentElement.classList.contains('dark');
+    document.querySelectorAll('[id$="-theme-icon"]').forEach(icon => {
+      icon.textContent = isDark ? '☀️' : '🌙';
+    });
+  }
+
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      // Setup header theme toggle
+      const headerToggle = document.getElementById('header-theme-toggle');
+      if (headerToggle) {
+        headerToggle.onclick = toggleTheme;
+      }
+      
+      // Setup theme toggle buttons
+      document.querySelectorAll('[id^="theme-toggle"]').forEach(btn => {
+        btn.onclick = toggleTheme;
+      });
+
+      // Initialize icons
+      initializeIcons();
+    });
+  } else {
+    // DOM already loaded
+    const headerToggle = document.getElementById('header-theme-toggle');
+    if (headerToggle) {
+      headerToggle.onclick = toggleTheme;
+    }
+
+    document.querySelectorAll('[id^="theme-toggle"]').forEach(btn => {
+      btn.onclick = toggleTheme;
+    });
+
+    initializeIcons();
+  }
+  
+  // Listen for theme changes
+  window.addEventListener('themechange', function() {
+    initializeIcons();
+  });
+</script>

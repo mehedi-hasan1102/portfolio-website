@@ -1,5 +1,5 @@
 ---
-import Welcome from '../components/Welcome.astro';
+
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -7,5 +7,15 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<main class="max-w-3xl mx-auto px-6 py-12 min-h-screen flex flex-col justify-center items-center">
+		<h1 class="text-4xl font-bold mb-4 text-center">Welcome to Astro!</h1>
+		<p class="text-lg text-center mb-8">
+			FUCKK <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">src/pages/index.astro</code>
+		</p>
+		<a
+			href="https://docs.astro.build"
+			class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+			>Read the Docs</a
+		>
+	</main>
 </Layout>
