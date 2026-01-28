@@ -1,31 +1,37 @@
 ---
 ---
 
-<section id="hero" class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
-  <div class="text-center z-10">
-    <h1 id="hero-title" class="text-5xl md:text-7xl font-bold mb-6 text-gray-900 dark:text-white">
-      Hi, I'm Mehedi Hasan
+<section id="hero" class="min-h-screen flex flex-col justify-center items-center px-6 relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
+  <!-- Animated Background Shapes -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-400/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+  </div>
+
+  <div class="text-center z-10 max-w-5xl mx-auto space-y-6">
+    <h1 id="hero-title" class="text-5xl md:text-7xl font-bold">
+      <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+        Hi, I'm Mehedi Hasan
+      </span>
     </h1>
-    <p id="hero-subtitle" class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8">
-      Full-Stack Developer & Creative Designer
+    <p id="hero-subtitle" class="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300">
+      Full-Stack Developer & UI/UX Enthusiast
     </p>
-    <p id="hero-description" class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-12">
-      Building beautiful, animated, and functional web experiences with modern technologies.
+    <p id="hero-description" class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+      Crafting beautiful, performant web experiences with modern technologies.
+      Passionate about clean code, innovative solutions, and user-centered design.
     </p>
     
-    <div id="hero-buttons" class="flex gap-4 justify-center flex-wrap">
-      <a href="#portfolio" class="cta-button bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+    <div id="hero-buttons" class="flex gap-4 justify-center flex-wrap pt-4">
+      <a href="#projects" class="cta-button bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl hover:scale-105">
         View My Work
       </a>
-      <a href="#contact" class="cta-button border-2 border-gray-400 dark:border-gray-600 text-gray-900 dark:text-white px-8 py-3 rounded-lg font-semibold hover:border-gray-600 dark:hover:border-gray-400 transition-colors">
+      <a href="#contact" class="cta-button bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-8 py-4 rounded-full font-semibold transition-all border-2 border-gray-300 dark:border-gray-700 hover:border-blue-600 dark:hover:border-blue-400 hover:scale-105">
         Get in Touch
       </a>
     </div>
   </div>
-
-  <!-- Animated background elements -->
-  <div id="bg-blob-1" class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10"></div>
-  <div id="bg-blob-2" class="absolute bottom-20 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-10"></div>
 </section>
 
 <script>
@@ -66,25 +72,6 @@
       stagger: 0.1,
       ease: 'power3.out'
     }, 0.6);
-
-    // Animate background blobs
-    gsap.to('#bg-blob-1', {
-      duration: 8,
-      x: 50,
-      y: 50,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut'
-    });
-
-    gsap.to('#bg-blob-2', {
-      duration: 10,
-      x: -50,
-      y: -50,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut'
-    });
 
     // Add button hover animations
     document.querySelectorAll('.cta-button').forEach(button => {

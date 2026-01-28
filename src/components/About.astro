@@ -1,0 +1,116 @@
+---
+---
+
+<section id="about" class="py-24 px-6 bg-white dark:bg-gray-900">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 id="about-title" class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        About Me
+      </h2>
+      <div id="about-divider" class="w-20 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <!-- Left side - Image/Visual -->
+      <div id="about-visual" class="relative">
+        <div class="w-full aspect-square rounded-2xl overflow-hidden shadow-2xl ring-4 ring-blue-100 dark:ring-blue-900/30">
+          <img 
+            src="/mehedi.png" 
+            alt="Mehedi Hasan" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <!-- Decorative gradient blobs -->
+        <div class="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-20 blur-2xl"></div>
+        <div class="absolute -bottom-6 -left-6 w-40 h-40 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full opacity-20 blur-2xl"></div>
+      </div>
+
+      <!-- Right side - Content -->
+      <div id="about-content" class="space-y-6">
+        <p class="about-text text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          Hi! I'm <span class="font-semibold text-blue-600 dark:text-blue-400">Mehedi Hasan</span>, a passionate full-stack developer and UI/UX enthusiast with a love for building beautiful digital experiences. With several years of experience in web development, I've worked on diverse projects ranging from innovative startups to established enterprises.
+        </p>
+
+        <p class="about-text text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          My journey in tech started with a curiosity about how things work on the web, and it has evolved into a career focused on creating seamless, interactive, and visually stunning applications. I believe in combining <span class="font-semibold text-purple-600 dark:text-purple-400">technical excellence</span> with <span class="font-semibold text-pink-600 dark:text-pink-400">creative design</span> to deliver products that users love.
+        </p>
+
+        <div class="pt-4 flex flex-wrap gap-3">
+          <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-medium">React</span>
+          <span class="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full font-medium">Node.js</span>
+          <span class="px-4 py-2 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full font-medium">TypeScript</span>
+          <span class="px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full font-medium">Tailwind CSS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function animateAbout() {
+    // Animate section title
+    gsap.from('#about-title', {
+      scrollTrigger: {
+        trigger: '#about',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      duration: 0.8,
+      opacity: 0,
+      y: 30,
+      ease: 'power3.out'
+    });
+
+    // Animate divider
+    gsap.from('#about-divider', {
+      scrollTrigger: {
+        trigger: '#about',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      duration: 0.8,
+      scaleX: 0,
+      opacity: 0,
+      ease: 'power3.out',
+      delay: 0.2
+    });
+
+    // Animate visual section
+    gsap.from('#about-visual', {
+      scrollTrigger: {
+        trigger: '#about-visual',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      duration: 0.8,
+      opacity: 0,
+      x: -50,
+      ease: 'power3.out'
+    });
+
+    // Animate content paragraphs
+    gsap.from('.about-text', {
+      scrollTrigger: {
+        trigger: '#about-content',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      duration: 0.8,
+      opacity: 0,
+      y: 20,
+      stagger: 0.2,
+      ease: 'power3.out'
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', animateAbout);
+  } else {
+    animateAbout();
+  }
+</script>

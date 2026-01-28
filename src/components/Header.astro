@@ -1,14 +1,16 @@
 ---
 ---
 
-<header class="bg-transparent transition-colors border-b border-gray-200 dark:border-gray-700">
-  <div class="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 id="logo-text" class="text-xl font-bold text-gray-900 dark:text-white">Mehedi Hasan</h1>
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 id="logo-text" class="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Mehedi Hasan</h1>
     
-    <nav id="nav-menu" class="flex gap-6">
-      <a href="#about" class="nav-link text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">About</a>
-      <a href="#portfolio" class="nav-link text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Portfolio</a>
-      <a href="#contact" class="nav-link text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Contact</a>
+    <nav id="nav-menu" class="flex gap-8 items-center">
+      <a href="#about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">About</a>
+      <a href="#projects" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Projects</a>
+      <a href="#recognition" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Recognition</a>
+      <a href="#blogs" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Blogs</a>
+      <a href="#contact" id="book-call-btn" class="book-call-btn bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl">Book a Call</a>
     </nav>
   </div>
 </header>
@@ -35,6 +37,15 @@
       ease: 'power2.out'
     });
 
+    // Animate book call button
+    gsap.from('#book-call-btn', {
+      duration: 0.8,
+      opacity: 0,
+      scale: 0.8,
+      y: -20,
+      ease: 'back.out'
+    });
+
     // Add hover animation to nav links
     document.querySelectorAll('.nav-link').forEach((link: Element) => {
       link.addEventListener('mouseenter', function(this: Element) {
@@ -54,7 +65,25 @@
         });
       });
     });
-  }
+    // Add hover animation to book call button
+    const bookCallBtn = document.getElementById('book-call-btn');
+    if (bookCallBtn) {
+      bookCallBtn.addEventListener('mouseenter', () => {
+        gsap.to(bookCallBtn, {
+          duration: 0.3,
+          scale: 1.05,
+          ease: 'power2.out'
+        });
+      });
+
+      bookCallBtn.addEventListener('mouseleave', () => {
+        gsap.to(bookCallBtn, {
+          duration: 0.3,
+          scale: 1,
+          ease: 'power2.out'
+        });
+      });
+    }  }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {

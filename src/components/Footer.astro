@@ -1,366 +1,86 @@
 ---
-import { Icon } from 'astro-icon/components';
-
 const currentYear = new Date().getFullYear();
-
-const socialLinks = [
-  { name: 'GitHub', href: 'https://github.com/mehedi-hasan1102', icon: 'mdi:github' },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/mehedi-hasan1102/', icon: 'mdi:linkedin' },
-  { name: 'Email', href: 'mailto:mehedi.hasan11023@gmail.com', icon: 'mdi:email' },
-  { name: 'Twitter', href: 'https://x.com/mehedihasan1102', icon: 'mdi:twitter' },
-];
-
-const mainPages = [
-  { label: 'Home', href: '/' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/' },
-];
-
-const resourcePages = [
-  { label: 'Resume', href: '#' },
-  { label: 'Projects', href: '#' },
-  { label: 'Resources', href: '#' },
-];
 ---
 
-<footer class="mt-12 border-t border-gray-400 dark:border-gray-600 transition-colors bg-transparent text-black dark:text-white">
-  <div class="max-w-3xl mx-auto px-6 py-12">
-    <!-- Mobile Layout -->
-    <div class="md:hidden space-y-8">
-      <div class="flex justify-between gap-8">
-        <!-- Main Links -->
-        <nav>
-          <h3 class="text-xs uppercase tracking-widest font-semibold mb-4">Main</h3>
-          <ul class="space-y-3">
-            {mainPages.map((link) => (
-              <li>
-                <a href={link.href} class="text-sm hover:underline transition-colors">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <!-- Resource Links -->
-        <nav>
-          <h3 class="text-xs uppercase tracking-widest font-semibold mb-4">Explore</h3>
-          <ul class="space-y-3">
-            {resourcePages.map((link) => (
-              <li>
-                <a href={link.href} class="text-sm hover:underline transition-colors">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+<footer class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
+      <!-- Left Side - Logo and Copyright -->
+      <div class="flex-1">
+        <a href="/" class="inline-block mb-4">
+          <span class="text-xl font-bold text-gray-900 dark:text-white">Mehedi Hasan</span>
+        </a>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          MIT License © {currentYear} Mehedi Hasan
+        </p>
       </div>
 
-      <!-- Brand Section -->
-      <div class="border-t border-gray-400 dark:border-gray-600 pt-8 space-y-4">
-        <h2 class="text-lg font-bold">Mehedi Hasan</h2>
-        
-        <!-- Social Links -->
-        <div class="flex gap-4">
-          {socialLinks.map((link) => (
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.name}
-              class="flex items-center justify-center rounded-lg  text-gray-600 dark:text-gray-400  hover:text-gray-900 dark:hover:text-white transition-colors"
-            >
-              <Icon name={link.icon} class="w-5 h-5" />
-            </a>
-          ))}
-        </div>
-
-        <!-- Theme Toggle and Back to Top -->
-        <div class="flex items-center gap-4 pt-4">
-          <button id="scroll-to-top" class="text-xs hover:underline transition-colors">
-            ↑ Back to top
-          </button>
-          <button id="theme-toggle-mobile" class="w-8 h-8 flex items-center justify-center rounded-md  transition-colors text-lg" aria-label="Toggle theme">
-            <span class="block dark:hidden">☽</span>
-            <span class="hidden dark:block">☀︎</span>
-          </button>
-        </div>
-
-        <!-- Copyright -->
-        <p class="text-xs">© {currentYear} Mehedi Hasan</p>
+      <!-- Right Side - Social Links -->
+      <div class="flex gap-6">
+        <a 
+          href="https://github.com/mehedi-hasan1102" 
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          aria-label="GitHub"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+          </svg>
+        </a>
+        <a 
+          href="https://www.linkedin.com/in/mehedi-hasan1102/" 
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          aria-label="LinkedIn"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+          </svg>
+        </a>
+        <a 
+          href="https://x.com/mehedihasan1102" 
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          aria-label="Twitter"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+          </svg>
+        </a>
+        <button
+          id="theme-toggle"
+          class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          aria-label="Toggle theme"
+        >
+          <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+        </button>
       </div>
-    </div>
-
-    <!-- Desktop Layout -->
-    <div class="hidden md:grid grid-cols-3 gap-12">
-      <!-- Brand Section -->
-      <div class="space-y-4">
-        <h2 class="text-lg font-bold">Mehedi Hasan</h2>
-        
-        <div class="flex gap-4">
-          {socialLinks.map((link) => (
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.name}
-              class=" flex items-center justify-center rounded-lg  transition-colors"
-            >
-              <Icon name={link.icon} class="w-5 h-5" />
-            </a>
-          ))}
-        </div>
-
-        <p class="text-xs">© {currentYear} Mehedi Hasan</p>
-      </div>
-
-      <!-- Main Pages -->
-      <nav>
-        <h3 class="text-xs uppercase tracking-widest font-semibold mb-5">Main</h3>
-        <ul class="space-y-4">
-          {mainPages.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm hover:underline transition-colors">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <!-- Explore Pages -->
-      <nav>
-        <h3 class="text-xs uppercase tracking-widest font-semibold mb-5">Explore</h3>
-        <ul class="space-y-4">
-          {resourcePages.map((link) => (
-            <li>
-              <a href={link.href} class="text-sm hover:underline transition-colors">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <!-- Theme Toggle and Back to Top -->
-        <div class="flex items-center gap-4 pt-8">
-          <button id="scroll-to-top-desktop" class="text-xs hover:underline transition-colors">
-            ↑ Back to top
-          </button>
-          <button id="theme-toggle-desktop" class="w-8 h-8 flex items-center justify-center rounded-md    transition-colors text-lg" aria-label="Toggle theme">
-            <span class="block dark:hidden">☽</span>
-            <span class="hidden dark:block">☀︎</span>
-          </button>
-        </div>
-      </nav>
     </div>
   </div>
 </footer>
 
 <script>
-  import gsap from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  function scrollToTop() {
-    gsap.to(window, {
-      duration: 0.8,
-      scrollTo: { y: 0 },
-      ease: 'power3.inOut'
-    });
-  }
-
   function toggleTheme() {
     const html = document.documentElement;
-    const body = document.body;
-    const footer = document.querySelector('footer');
     const isDark = html.classList.contains('dark');
     
-    // Disable transitions temporarily to prevent flicker
-    html.style.transition = 'none';
-    body.style.transition = 'none';
-    if (footer) footer.style.transition = 'none';
-    
-    // Toggle the dark class immediately
     if (isDark) {
       html.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     } else {
       html.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     }
-    
-    // Force a reflow to apply changes immediately
-    void html.offsetHeight;
-    
-    // Re-enable transitions
-    setTimeout(() => {
-      html.style.transition = '';
-      body.style.transition = '';
-      if (footer) footer.style.transition = '';
-    }, 0);
-    
-    // Update localStorage for persistence
-    const newTheme = html.classList.contains('dark') ? 'dark' : 'light';
-    localStorage.setItem('theme', newTheme);
-    
-    // Dispatch custom event for any listeners
-    window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: newTheme } }));
   }
 
-  function animateFooter() {
-    // Animate footer on scroll into view
-    gsap.from('footer', {
-      scrollTrigger: {
-        trigger: 'footer',
-        start: 'top 90%',
-        toggleActions: 'play none none none'
-      },
-      duration: 1,
-      opacity: 0,
-      y: 50,
-      ease: 'power3.out'
-    });
-
-    // Animate footer headings
-    document.querySelectorAll('footer h2, footer h3').forEach((heading) => {
-      gsap.from(heading, {
-        scrollTrigger: {
-          trigger: heading,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        },
-        duration: 0.8,
-        opacity: 0,
-        x: -20,
-        ease: 'power2.out'
-      });
-    });
-
-    // Animate social links with stagger
-    document.querySelectorAll('footer a[aria-label]').forEach((link, index) => {
-      gsap.from(link, {
-        scrollTrigger: {
-          trigger: 'footer',
-          start: 'top 85%',
-          toggleActions: 'play none none none'
-        },
-        duration: 0.6,
-        opacity: 0,
-        scale: 0,
-        delay: index * 0.1,
-        ease: 'back.out'
-      });
-
-      // Add hover animation
-      link.addEventListener('mouseenter', () => {
-        gsap.to(link, {
-          duration: 0.3,
-          scale: 1.2,
-          y: -5,
-          ease: 'power2.out'
-        });
-      });
-
-      link.addEventListener('mouseleave', () => {
-        gsap.to(link, {
-          duration: 0.3,
-          scale: 1,
-          y: 0,
-          ease: 'power2.out'
-        });
-      });
-    });
-
-    // Animate footer links
-    document.querySelectorAll('footer nav a').forEach((link) => {
-      link.addEventListener('mouseenter', () => {
-        gsap.to(link, {
-          duration: 0.3,
-          x: 5,
-          ease: 'power2.out'
-        });
-      });
-
-      link.addEventListener('mouseleave', () => {
-        gsap.to(link, {
-          duration: 0.3,
-          x: 0,
-          ease: 'power2.out'
-        });
-      });
-    });
-
-    // Add animation to back to top button
-    document.querySelectorAll('[id^="scroll-to-top"]').forEach((btn) => {
-      btn.addEventListener('mouseenter', () => {
-        gsap.to(btn, {
-          duration: 0.3,
-          y: -3,
-          ease: 'power2.out'
-        });
-      });
-
-      btn.addEventListener('mouseleave', () => {
-        gsap.to(btn, {
-          duration: 0.3,
-          y: 0,
-          ease: 'power2.out'
-        });
-      });
-    });
-
-    // Add animation to theme toggle buttons
-    document.querySelectorAll('[id^="theme-toggle"]').forEach((btn) => {
-      btn.addEventListener('mouseenter', () => {
-        gsap.to(btn, {
-          duration: 0.3,
-          scale: 1.15,
-          rotate: 20,
-          ease: 'power2.out'
-        });
-      });
-
-      btn.addEventListener('mouseleave', () => {
-        gsap.to(btn, {
-          duration: 0.3,
-          scale: 1,
-          rotate: 0,
-          ease: 'power2.out'
-        });
-      });
-    });
-  }
-
-  // Wait for DOM to be ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      // Setup scroll to top buttons
-      document.querySelectorAll('[id^="scroll-to-top"]').forEach(btn => {
-        (btn as HTMLButtonElement).onclick = scrollToTop;
-      });
-
-      // Setup theme toggle buttons
-      document.querySelectorAll('[id^="theme-toggle"]').forEach(btn => {
-        (btn as HTMLButtonElement).onclick = toggleTheme;
-      });
-
-      animateFooter();
-    });
-  } else {
-    // DOM already loaded
-    document.querySelectorAll('[id^="scroll-to-top"]').forEach(btn => {
-      (btn as HTMLButtonElement).onclick = scrollToTop;
-    });
-
-    document.querySelectorAll('[id^="theme-toggle"]').forEach(btn => {
-      (btn as HTMLButtonElement).onclick = toggleTheme;
-    });
-
-    animateFooter();
-  }
-  
-  // Listen for theme changes from other sources
-  window.addEventListener('themechange', function() {
-    // Theme change handled
-  });
+  const themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
 </script>
