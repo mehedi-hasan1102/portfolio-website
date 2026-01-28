@@ -12,7 +12,8 @@
     "@astrojs/tailwind": "^6.0.2",
     "astro": "^5.16.16",
     "astro-icon": "^1.1.5",
-    "astro-theme-toggle": "^0.8.0"
+    "astro-theme-toggle": "^0.8.0",
+    "gsap": "^3.14.2"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.2.3",

@@ -1,21 +1,132 @@
 ---
-
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Hero from '../components/Hero.astro';
 ---
 
 <Layout>
-	<main class="max-w-3xl mx-auto px-6 py-12 min-h-screen flex flex-col justify-center items-center">
-		<h1 class="text-4xl font-bold mb-4 text-center">Welcome to Astro!</h1>
-		<p class="text-lg text-center mb-8">
-			FUCKK <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">src/pages/index.astro</code>
-		</p>
-		<a
-			href="https://docs.astro.build"
-			class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
-			>Read the Docs</a
-		>
+	<Hero />
+	
+	<main class="max-w-3xl mx-auto px-6 py-12">
+		<!-- Portfolio Section -->
+		<section id="portfolio" class="py-20">
+			<h2 class="text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white portfolio-title">Featured Projects</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<div class="portfolio-card p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-purple-900/20 transition-shadow">
+					<h3 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">Project One</h3>
+					<p class="text-gray-600 dark:text-gray-400 mb-4">A modern web application built with cutting-edge technologies and beautiful animations.</p>
+					<a href="#" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold">Learn More →</a>
+				</div>
+				<div class="portfolio-card p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-purple-900/20 transition-shadow">
+					<h3 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">Project Two</h3>
+					<p class="text-gray-600 dark:text-gray-400 mb-4">An interactive design system with smooth animations and responsive layouts.</p>
+					<a href="#" class="text-blue-600 dark:text-blue-400 hover:underline font-semibold">Learn More →</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- About Section -->
+		<section id="about" class="py-20">
+			<h2 class="text-4xl font-bold mb-8 text-center text-gray-900 dark:text-white about-title">About Me</h2>
+			<div class="about-content space-y-6 text-lg text-gray-700 dark:text-gray-300">
+				<p>I'm a passionate developer with a love for creating beautiful, animated user experiences. I specialize in building responsive, accessible web applications with modern frameworks and tools.</p>
+				<p>My expertise includes:</p>
+				<ul class="list-disc list-inside space-y-2">
+					<li>Frontend Development with Astro, React, and Vue</li>
+					<li>Smooth Animations with GSAP</li>
+					<li>Responsive Design & Tailwind CSS</li>
+					<li>TypeScript & Modern JavaScript</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="py-20">
+			<h2 class="text-4xl font-bold mb-8 text-center text-gray-900 dark:text-white contact-title">Get In Touch</h2>
+			<div class="contact-form max-w-2xl mx-auto">
+				<p class="text-center text-gray-600 dark:text-gray-400 mb-8">Let's create something amazing together. Feel free to reach out!</p>
+				<div class="flex flex-col gap-4">
+					<a href="mailto:your@email.com" class="block text-center bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+						Send me an Email
+					</a>
+					<div class="flex gap-4 justify-center">
+						<a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">GitHub</a>
+						<a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">LinkedIn</a>
+						<a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors font-semibold">Twitter</a>
+					</div>
+				</div>
+			</div>
+		</section>
 	</main>
 </Layout>
+
+<script>
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	function setupScrollAnimations() {
+		// Animate portfolio cards
+		document.querySelectorAll('.portfolio-card').forEach((card) => {
+			gsap.from(card, {
+				scrollTrigger: {
+					trigger: card,
+					start: 'top 80%',
+					toggleActions: 'play none none none'
+				},
+				duration: 0.8,
+				opacity: 0,
+				y: 50,
+				ease: 'power3.out'
+			});
+		});
+
+		// Animate section titles
+		document.querySelectorAll('.portfolio-title, .about-title, .contact-title').forEach((title) => {
+			gsap.from(title, {
+				scrollTrigger: {
+					trigger: title,
+					start: 'top 85%',
+					toggleActions: 'play none none none'
+				},
+				duration: 0.8,
+				opacity: 0,
+				y: 30,
+				ease: 'power3.out'
+			});
+		});
+
+		// Animate about content
+		gsap.from('.about-content', {
+			scrollTrigger: {
+				trigger: '.about-content',
+				start: 'top 85%',
+				toggleActions: 'play none none none'
+			},
+			duration: 0.8,
+			opacity: 0,
+			y: 30,
+			ease: 'power3.out'
+		});
+
+		// Animate contact form
+		gsap.from('.contact-form', {
+			scrollTrigger: {
+				trigger: '.contact-form',
+				start: 'top 85%',
+				toggleActions: 'play none none none'
+			},
+			duration: 0.8,
+			opacity: 0,
+			y: 30,
+			ease: 'power3.out'
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', setupScrollAnimations);
+	} else {
+		setupScrollAnimations();
+	}
+</script>
+

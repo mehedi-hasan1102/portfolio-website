@@ -157,9 +157,18 @@ const resourcePages = [
   </div>
 </footer>
 
-<script is:inline>
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
   function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    gsap.to(window, {
+      duration: 0.8,
+      scrollTo: { y: 0 },
+      ease: 'power3.inOut'
+    });
   }
 
   function toggleTheme() {
@@ -194,17 +203,132 @@ const resourcePages = [
     const newTheme = html.classList.contains('dark') ? 'dark' : 'light';
     localStorage.setItem('theme', newTheme);
     
-    // Update icon visibility (no need to change the actual icons)
-    // The Tailwind classes handle the visibility automatically
-    
     // Dispatch custom event for any listeners
     window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: newTheme } }));
   }
 
-  // Initialize icons based on current theme
-  function initializeIcons() {
-    // The Tailwind classes handle icon visibility automatically
-    // No manual initialization needed
+  function animateFooter() {
+    // Animate footer on scroll into view
+    gsap.from('footer', {
+      scrollTrigger: {
+        trigger: 'footer',
+        start: 'top 90%',
+        toggleActions: 'play none none none'
+      },
+      duration: 1,
+      opacity: 0,
+      y: 50,
+      ease: 'power3.out'
+    });
+
+    // Animate footer headings
+    document.querySelectorAll('footer h2, footer h3').forEach((heading) => {
+      gsap.from(heading, {
+        scrollTrigger: {
+          trigger: heading,
+          start: 'top 90%',
+          toggleActions: 'play none none none'
+        },
+        duration: 0.8,
+        opacity: 0,
+        x: -20,
+        ease: 'power2.out'
+      });
+    });
+
+    // Animate social links with stagger
+    document.querySelectorAll('footer a[aria-label]').forEach((link, index) => {
+      gsap.from(link, {
+        scrollTrigger: {
+          trigger: 'footer',
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        duration: 0.6,
+        opacity: 0,
+        scale: 0,
+        delay: index * 0.1,
+        ease: 'back.out'
+      });
+
+      // Add hover animation
+      link.addEventListener('mouseenter', () => {
+        gsap.to(link, {
+          duration: 0.3,
+          scale: 1.2,
+          y: -5,
+          ease: 'power2.out'
+        });
+      });
+
+      link.addEventListener('mouseleave', () => {
+        gsap.to(link, {
+          duration: 0.3,
+          scale: 1,
+          y: 0,
+          ease: 'power2.out'
+        });
+      });
+    });
+
+    // Animate footer links
+    document.querySelectorAll('footer nav a').forEach((link) => {
+      link.addEventListener('mouseenter', () => {
+        gsap.to(link, {
+          duration: 0.3,
+          x: 5,
+          ease: 'power2.out'
+        });
+      });
+
+      link.addEventListener('mouseleave', () => {
+        gsap.to(link, {
+          duration: 0.3,
+          x: 0,
+          ease: 'power2.out'
+        });
+      });
+    });
+
+    // Add animation to back to top button
+    document.querySelectorAll('[id^="scroll-to-top"]').forEach((btn) => {
+      btn.addEventListener('mouseenter', () => {
+        gsap.to(btn, {
+          duration: 0.3,
+          y: -3,
+          ease: 'power2.out'
+        });
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, {
+          duration: 0.3,
+          y: 0,
+          ease: 'power2.out'
+        });
+      });
+    });
+
+    // Add animation to theme toggle buttons
+    document.querySelectorAll('[id^="theme-toggle"]').forEach((btn) => {
+      btn.addEventListener('mouseenter', () => {
+        gsap.to(btn, {
+          duration: 0.3,
+          scale: 1.15,
+          rotate: 20,
+          ease: 'power2.out'
+        });
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, {
+          duration: 0.3,
+          scale: 1,
+          rotate: 0,
+          ease: 'power2.out'
+        });
+      });
+    });
   }
 
   // Wait for DOM to be ready
@@ -212,32 +336,31 @@ const resourcePages = [
     document.addEventListener('DOMContentLoaded', function() {
       // Setup scroll to top buttons
       document.querySelectorAll('[id^="scroll-to-top"]').forEach(btn => {
-        btn.onclick = scrollToTop;
+        (btn as HTMLButtonElement).onclick = scrollToTop;
       });
 
       // Setup theme toggle buttons
       document.querySelectorAll('[id^="theme-toggle"]').forEach(btn => {
-        btn.onclick = toggleTheme;
+        (btn as HTMLButtonElement).onclick = toggleTheme;
       });
 
-      // Initialize icons
-      initializeIcons();
+      animateFooter();
     });
   } else {
     // DOM already loaded
     document.querySelectorAll('[id^="scroll-to-top"]').forEach(btn => {
-      btn.onclick = scrollToTop;
+      (btn as HTMLButtonElement).onclick = scrollToTop;
     });
 
     document.querySelectorAll('[id^="theme-toggle"]').forEach(btn => {
-      btn.onclick = toggleTheme;
+      (btn as HTMLButtonElement).onclick = toggleTheme;
     });
 
-    initializeIcons();
+    animateFooter();
   }
   
-  // Listen for theme changes from other sources (like the Toggle component)
+  // Listen for theme changes from other sources
   window.addEventListener('themechange', function() {
-    initializeIcons();
+    // Theme change handled
   });
 </script>
