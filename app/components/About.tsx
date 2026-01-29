@@ -8,20 +8,22 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const technologies = [
-  "React",
+  "React.js",
   "Next.js",
   "TypeScript",
+  "JavaScript",
   "Node.js",
-  "GSAP",
-  "Tailwind CSS",
   "MongoDB",
-  "PostgreSQL",
+  "Tailwind CSS",
+  "GSAP",
+  "Git & GitHub",
 ];
 
+
 const stats = [
-  { number: "2+", label: "YEARS EXPERIENCE" },
-  { number: "50+", label: "PROJECTS BUILT" },
-  { number: "10+", label: "TECHNOLOGIES" },
+  { number: "2+", label: "YEARS OF CODING PRACTICE" },
+  { number: "20+", label: "PROJECTS BUILT" },
+  { number: "10+", label: "TECHNOLOGIES USED" },
 ];
 
 export default function About() {
@@ -150,7 +152,7 @@ export default function About() {
           <div ref={imageRef} className="about-image-wrapper">
             <div className="about-image-container">
               <Image
-                src="/profile.webp"
+                src="/profile.png"
                 alt="Profile"
                 fill
                 className="about-image"

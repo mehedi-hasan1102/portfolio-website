@@ -20,66 +20,53 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    id: 1,
-    type: "work",
-    title: "Full-Stack Developer",
-    company: "Tech Company",
-    location: "Remote",
-    period: "2024 - PRESENT",
-    description:
-      "Leading development of scalable web applications and mentoring junior developers.",
-    achievements: [
-      "Built microservices architecture serving 100K+ users",
-      "Reduced page load time by 60% through optimization",
-      "Implemented CI/CD pipelines for automated deployments",
-    ],
-    tech: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
-  },
+  id: 1,
+  type: "work",
+  title: "Junior Web Developer (Self-Taught)",
+  company: "Independent Projects",
+  location: "Remote",
+  period: "2024 - Present",
+  description:
+    "Building full-stack web applications with a focus on clean code, performance, and modern web technologies.",
+  achievements: [
+    "Developed full-stack applications using React, Next.js, Node.js, and MongoDB",
+    "Implemented RESTful APIs and connected frontend with backend services",
+    "Optimized application performance and maintained code quality",
+  ],
+  tech: ["React.js", "Next.js", "TypeScript", "Node.js", "MongoDB", "REST APIs", "Tailwind CSS"],
+}
+,
+  
+ {
+  "id": 2,
+  "type": "education",
+  "title": "Complete Web Development Course",
+  "company": "Programming Hero",
+  "location": "Dhaka, Bangladesh",
+  "period": "6 months",
+  "description": "Completed an intensive 6-month web development course, gaining practical skills in programming, front-end and back-end development, and project implementation.",
+  "achievements": [
+    "Built multiple web projects during the course",
+    "Learned programming languages such as HTML, CSS, JavaScript, and basic backend technologies",
+    "Enhanced problem-solving, logical thinking, and teamwork skills"
+  ]
+}
+,
   {
-    id: 2,
-    type: "work",
-    title: "Frontend Developer",
-    company: "Digital Agency",
-    location: "Dhaka, Bangladesh",
-    period: "2023 - 2024",
-    description:
-      "Developed interactive web experiences for high-profile clients.",
-    achievements: [
-      "Delivered 20+ client projects on time",
-      "Created reusable component library",
-      "Improved team productivity by 40%",
-    ],
-    tech: ["React", "GSAP", "Tailwind CSS", "Figma"],
-  },
-  {
-    id: 3,
-    type: "work",
-    title: "Junior Developer",
-    company: "Startup Inc",
-    location: "Dhaka, Bangladesh",
-    period: "2022 - 2023",
-    description: "Started my professional journey building web applications.",
-    achievements: [
-      "Developed MVP for early-stage startup",
-      "Learned agile methodologies",
-      "Contributed to open-source projects",
-    ],
-    tech: ["JavaScript", "React", "Node.js", "MongoDB"],
-  },
-  {
-    id: 4,
-    type: "education",
-    title: "Bachelor in Computer Science",
-    company: "University Name",
-    location: "Dhaka, Bangladesh",
-    period: "2019 - 2023",
-    description: "Studied computer science with focus on software engineering.",
-    achievements: [
-      "Graduated with honors",
-      "Led university coding club",
-      "Won hackathon competitions",
-    ],
-  },
+  id: 3,
+  type: "education",
+  title: "Bachelor in Physics",
+  company: "National University",
+  location: "Dhaka, Bangladesh",
+  period: "Expected 2026",
+  description: "Completed a Bachelor's degree in Physics, gaining strong analytical thinking, problem-solving, and research skills.",
+  achievements: [
+    "Graduated with honors",
+    "Actively participated in university projects and research",
+    "Developed strong teamwork and critical thinking skills",
+  ],
+}
+
 ];
 
 const TimelineItem = ({
