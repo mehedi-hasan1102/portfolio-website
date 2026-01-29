@@ -1,23 +1,27 @@
 ---
 ---
 
+<div id="scroll-progress" class="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-purple-600 z-[100]" style="width: 0%;"></div>
+
 <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 id="logo-text" class="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Mehedi Hasan</h1>
+    <a href="#" id="logo-text" class="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity">Mehedi Hasan</a>
     
     <nav id="nav-menu" class="flex gap-8 items-center">
       <a href="#about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">About</a>
       <a href="#projects" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Projects</a>
       <a href="#recognition" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Recognition</a>
-      <a href="#blogs" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Blogs</a>
+      <a href="#blog" class="nav-link text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Blogs</a>
       <a href="#contact" id="book-call-btn" class="book-call-btn bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl">Book a Call</a>
     </nav>
   </div>
 </header>
 
 <script>
-  // Import GSAP
   import gsap from 'gsap';
+  import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
+  gsap.registerPlugin(ScrollToPlugin);
 
   function animateHeader() {
     // Animate logo
@@ -47,17 +51,16 @@
     });
 
     // Add hover animation to nav links
-    document.querySelectorAll('.nav-link').forEach((link: Element) => {
-      link.addEventListener('mouseenter', function(this: Element) {
+    document.querySelectorAll('.nav-link').forEach((link) => {
+      link.addEventListener('mouseenter', function() {
         gsap.to(this, {
           duration: 0.3,
           scale: 1.1,
-          color: 'currentColor',
           ease: 'power2.out'
         });
       });
 
-      link.addEventListener('mouseleave', function(this: Element) {
+      link.addEventListener('mouseleave', function() {
         gsap.to(this, {
           duration: 0.3,
           scale: 1,
@@ -65,6 +68,7 @@
         });
       });
     });
+
     // Add hover animation to book call button
     const bookCallBtn = document.getElementById('book-call-btn');
     if (bookCallBtn) {
@@ -83,7 +87,62 @@
           ease: 'power2.out'
         });
       });
-    }  }
+    }
+
+    // Smooth scroll with GSAP - Ultra smooth extended duration
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        
+        if (href === '#') {
+          // Scroll to top with progress bar
+          gsap.to(window, {
+            duration: 4,
+            scrollTo: 0,
+            ease: 'sine.inOut',
+            onUpdate: function() {
+              updateScrollProgress();
+            }
+          });
+        } else {
+          const target = document.querySelector(href);
+          if (target) {
+            gsap.to(window, {
+              duration: 4,
+              scrollTo: {
+                y: target,
+                offsetY: 80
+              },
+              ease: 'sine.inOut',
+              onUpdate: function() {
+                updateScrollProgress();
+              }
+            });
+          }
+        }
+      });
+    });
+
+    // Scroll progress indicator
+    function updateScrollProgress() {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / scrollHeight) * 100;
+      const progressBar = document.getElementById('scroll-progress');
+      if (progressBar) {
+        gsap.to(progressBar, {
+          width: scrolled + '%',
+          duration: 0.1
+        });
+      }
+    }
+
+    // Update progress on regular scroll
+    window.addEventListener('scroll', updateScrollProgress);
+    
+    // Initial progress update
+    updateScrollProgress();
+  }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
