@@ -158,12 +158,12 @@ export default function Certificates() {
           </div>
 
           {/* CTA */}
-          <div className="cert-footer">
+          {/* <div className="cert-footer">
             <a href="#" className="cert-all-btn">
               <span>VIEW ALL CREDENTIALS</span>
               <span>→</span>
             </a>
-          </div>
+          </div> */}
         </div>
       </section>
 
