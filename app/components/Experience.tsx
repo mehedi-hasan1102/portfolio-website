@@ -284,7 +284,7 @@ export default function Experience() {
             className="download-resume-btn"
           >
             <span className="btn-icon">📄</span>
-            <span className="btn-text">DOWNLOAD RESUME</span>
+            <span className="btn-text">DOWNLOAD CV</span>
             <span className="btn-arrow">↓</span>
           </a>
         </div>
