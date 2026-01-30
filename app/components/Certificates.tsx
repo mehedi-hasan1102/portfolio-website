@@ -10,44 +10,29 @@ gsap.registerPlugin(ScrollTrigger);
 const certificates = [
   {
     id: 1,
-    title: "AWS Certified Developer",
-    issuer: "Amazon Web Services",
+    title: "Complete Web Development Course",
+    issuer: "Programming Hero",
     date: "2025",
     credentialId: "AWS-DEV-XXXXX",
-    color: "#FF9900",
-    icon: "☁️",
-    image: "/certificates/aws.png",
+   
+    icon: "🌐",
+    color: "#FF6A00",
+    image: "/assets/images/certificates/ph.jpg",
   },
+  
+
+
+
   {
     id: 2,
-    title: "Meta Frontend Developer",
-    issuer: "Meta (Coursera)",
-    date: "2024",
+    title: "Voluntary Blood Donation Program",
+    issuer: "Quantum Foundation",
+    date: "2022",
     credentialId: "META-FE-XXXXX",
     color: "#0668E1",
-    icon: "📱",
-    image: "/certificates/meta.png",
-  },
-  {
-    id: 3,
-    title: "Google UX Design",
-    issuer: "Google (Coursera)",
-    date: "2024",
-    credentialId: "GOOGLE-UX-XXXXX",
-    color: "#4285F4",
-    icon: "🎨",
-    image: "/certificates/google.png",
-  },
-  {
-    id: 4,
-    title: "JavaScript Algorithms",
-    issuer: "freeCodeCamp",
-    date: "2023",
-    credentialId: "FCC-JS-XXXXX",
-    color: "#0A0A23",
-    icon: "💻",
-    image: "/certificates/fcc.png",
-  },
+    icon: "🩸 ",
+    image: "/assets/images/certificates/blood.jpg",
+  }
 ];
 
 export default function Certificates() {

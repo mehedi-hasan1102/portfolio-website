@@ -6,12 +6,21 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// const socialLinks = [
+//   { name: "GH", fullName: "GITHUB", url: "https://github.com" },
+//   { name: "LI", fullName: "LINKEDIN", url: "https://linkedin.com" },
+//   { name: "TW", fullName: "TWITTER", url: "https://twitter.com" },
+//   { name: "IG", fullName: "INSTAGRAM", url: "https://instagram.com" },
+// ];
+
 const socialLinks = [
-  { name: "GH", fullName: "GITHUB", url: "https://github.com" },
-  { name: "LI", fullName: "LINKEDIN", url: "https://linkedin.com" },
-  { name: "TW", fullName: "TWITTER", url: "https://twitter.com" },
-  { name: "IG", fullName: "INSTAGRAM", url: "https://instagram.com" },
+  { name: "GH", fullName: "GitHub", url: "https://github.com/mehedi-hasan1102" },
+  { name: "DEV", fullName: "Dev.to", url: "https://dev.to/mehedihasan1102" },
+  { name: "X", fullName: "TWITTER", url: "https://x.com/mehedihasan1102" },
+  { name: "LI", fullName: "LinkedIn", url: "https://www.linkedin.com/in/mehedi-hasan1102/" },
+ 
 ];
+
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
