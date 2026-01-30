@@ -156,8 +156,8 @@ export default function Contact() {
           onMouseEnter={() => handleEmailHover(true)}
           onMouseLeave={() => handleEmailHover(false)}
         >
-          <a href="mailto:hello@mehedi.dev" className="email-giant">
-            <span className="email-text">hello@mehedi.dev</span>
+          <a href="mailto:mehedi.hasan11023@gmail.com" className="email-giant">
+            <span className="email-text">mehedi.hasan11023@gmail.com</span>
             <span className="email-underline" />
           </a>
         </div>
@@ -231,7 +231,7 @@ export default function Contact() {
             </span>
           </div>
           <div className="footer-right">
-            <span className="footer-credit">DESIGNED & BUILT WITH ♥</span>
+            <span className="footer-credit">DESIGNED & BUILT WITH NEXT.JS</span>
           </div>
         </div>
 
@@ -240,6 +240,7 @@ export default function Contact() {
           <span className="big-text-scroll">
             CREATIVE DEVELOPER • OPEN TO WORK • LET&apos;S BUILD TOGETHER •
             CREATIVE DEVELOPER • OPEN TO WORK • LET&apos;S BUILD TOGETHER •
+          
           </span>
         </div>
       </footer>
