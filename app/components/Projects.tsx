@@ -173,7 +173,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="skills-section-v2" id="projects" id="portfolio">
+    <section ref={sectionRef} className="skills-section-v2" id="portfolio">
       {/* Gradient Orbs Background */}
       <div className="skills-orb skills-orb-1" />
       <div className="skills-orb skills-orb-2" />
